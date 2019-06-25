@@ -1,0 +1,72 @@
+= Task-Wrestler
+Paul Ollivier <contact@paulollivier.fr>
+v0.1.0, 25-06-2019
+:toc:
+
+Task-Wrestler is an alternative to https://taskwarrior.org/[TaskWarrior].
+It has been written for two reasons:
+
+. TaskWarrior is hard. Real hard.
+. I needed practice writing rust code!
+
+WARNING: This project is in *alpha* state! This is not safe to use at all!
+
+
+== Installation
+
+----
+cargo install task-wrestler
+----
+
+Please make sure you have `~/.cargo/bin` (or whatever your cargo install path is) in your `$PATH`!
+
+== Usage
+
+You may find a proposed UI hereafter::
+----
+$ tw add "Hello task wrestler!"
+$ tw list
+No context
+id title                 tags desc
+1  Hello tasks wrestler! _    _
+
+$ tw add :taskwrestler +rust,code "Implement current example" "It would be nice if tw *actually* did this"
+$ tw list :taskwrestler
+:taskwrestler
+id title                        tags        desc
+2  "Implement current example"  +code,rust  "It would be nice if tw *actually* did this"
+----
+
+
+
+== Wishlist
+
+=== UI/UX
+
+* [ ] Simple but colorful terminal interface. I should be able to recognize todo items easily
+* [ ] Ability (optional) to sync across devices! I want to be able to read my shopping list from my phone!
+      But i should not be constrained to use a sync mechanism!
+* [ ] Data storage should be human-readable. No SQLite database.
+* [ ] Minimal configuration
+* [ ] Option to have context-sensitive tasks
+* [ ] Shell auto-completion
+* [ ] Nice documentation
+  * Using asciidoc?
+
+=== Technical
+
+* [ ] A task is:
+  . A required short description
+  . An optional long description
+  . An optional due date
+* [ ] Ability to tag by *projects*(:), *themes*(+) and *subjects*(@).
+      That means a person may be a subject. A task may as well have multiple _themes_ and _subjects_.
+      However, a task may be attached to only one project.
+* [ ] Data storage should be replicated across devices.
+* [ ] Decoupled code design. A simple binary leverages a less simple library, that can be used for other purposes.
+
+=== Optional/Nice To Have/Probably Won't Implement
+
+* [ ] *OPT* Directory-based task listing restriction
+* [ ] *NTH* Import from common task managers
+* [ ] *PWI* Export/sync to tools like kanboard, JIRA...

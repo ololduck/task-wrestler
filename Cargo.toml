@@ -1,0 +1,9 @@
+[package]
+name = "task-wrestler"
+version = "0.1.0"
+authors = ["Paul Ollivier <contact@paulollivier.fr>"]
+edition = "2018"
+
+[dependencies]
+clap = "*"
+termion = "*"
