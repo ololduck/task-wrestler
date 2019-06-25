@@ -4,6 +4,10 @@ version = "0.1.0"
 authors = ["Paul Ollivier <contact@paulollivier.fr>"]
 edition = "2018"
 
+[[bin]]
+name = "tw"
+path = "stc/main.rs"
+
 [dependencies]
 clap = "*"
 termion = "*"
