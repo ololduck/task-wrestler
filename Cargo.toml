@@ -6,8 +6,9 @@ edition = "2018"
 
 [[bin]]
 name = "tw"
-path = "stc/main.rs"
+path = "src/main.rs"
 
 [dependencies]
 clap = "*"
 termion = "*"
+chrono = "*"
