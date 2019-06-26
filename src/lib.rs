@@ -90,8 +90,19 @@ impl TaskDao {
                     .expect("Could not read task id!")
                     .parse()
                     .expect("Could not parse task id!");
-                entry.project = Some(tokens.next().expect("Could not read task's project!").trim_matches(':').to_string());
-                for tag in tokens.next().expect("Can't read tags").trim_matches('+').split(TAGS_SEP) {
+                entry.project = Some(
+                    tokens
+                        .next()
+                        .expect("Could not read task's project!")
+                        .trim_matches(':')
+                        .to_string(),
+                );
+                for tag in tokens
+                    .next()
+                    .expect("Can't read tags")
+                    .trim_matches('+')
+                    .split(TAGS_SEP)
+                {
                     entry.tags.push(tag.to_string());
                 }
                 let due_token = tokens.next().expect("Could not read date");
@@ -105,7 +116,12 @@ impl TaskDao {
                     );
                 }
                 entry.title = String::from(tokens.next().expect("Could not read title"));
-                entry.desc = Some(tokens.next().expect("Could not read description").to_string());
+                entry.desc = Some(
+                    tokens
+                        .next()
+                        .expect("Could not read description")
+                        .to_string(),
+                );
                 self.entries.push(entry);
             }
         }
@@ -148,7 +164,7 @@ impl TaskDao {
                 entry.id,
                 match &entry.project {
                     Some(s) => s,
-                    None => "-"
+                    None => "-",
                 },
                 entry.tags.join(TAGS_SEP),
                 match entry.due {
@@ -158,10 +174,10 @@ impl TaskDao {
                 entry.title,
                 match &entry.desc {
                     Some(s) => s,
-                    None => ""
+                    None => "",
                 }
             )
-                .expect("Could not write to file!");
+            .expect("Could not write to file!");
         }
         Ok(())
     }
