@@ -12,3 +12,8 @@ path = "src/main.rs"
 clap = "*"
 termion = "*"
 chrono = "*"
+config = "*"
+
+[dev-dependencies]
+pretty_assertions = "*"
+rusty-hook = "*"

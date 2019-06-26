@@ -1,5 +1,5 @@
 use std::io;
 
-fn main() -> Result<(),io::Error> {
+fn main() -> Result<(), io::Error> {
     Ok(())
 }
